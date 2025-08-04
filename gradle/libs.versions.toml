@@ -12,6 +12,8 @@ jetbrainsKotlinJvm = "2.2.0"
 
 # Async
 coroutines = "1.10.2"
+appcompat = "1.7.1"
+material = "1.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,10 +34,13 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 # Coroutines
 coroutines-core = { group = "org.jetbrains.kotlinx" , name = "kotlinx-coroutines-core" , version.ref = "coroutines" }
 coroutines-android = { group = "org.jetbrains.kotlinx" , name = "kotlinx-coroutines-android" , version.ref = "coroutines" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
