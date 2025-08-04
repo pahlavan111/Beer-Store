@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -55,6 +58,11 @@ dependencies {
     //Async
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+
+    //DI
+    implementation(libs.hilt.runtime)
+    ksp(libs.hilt.compiler)
+    ksp(libs.hilt.androidx.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
