@@ -1,6 +1,5 @@
 package ir.kidzyland.mysample.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -18,20 +17,24 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = androidx.compose.ui.graphics.Color(0xFF6200EE),
+    secondary = androidx.compose.ui.graphics.Color(0xFF03DAC6),
+    background = androidx.compose.ui.graphics.Color(0xFFFFFFFF),
+    surface = androidx.compose.ui.graphics.Color(0xFFFFFFFF),
+    onPrimary = androidx.compose.ui.graphics.Color(0xFFFFFFFF),
+    onSecondary = androidx.compose.ui.graphics.Color(0xFF000000),
+    onBackground = androidx.compose.ui.graphics.Color(0xFF000000),
+    onSurface = androidx.compose.ui.graphics.Color(0xFF000000),
 )
+
+@Composable
+fun ChatterBoxTheme(content: @Composable () -> Unit) {
+    MaterialTheme(
+        colorScheme = LightColorScheme,
+        typography = MaterialTheme.typography,
+        content = content
+    )
+}
 
 @Composable
 fun MySampleTheme(
