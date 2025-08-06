@@ -1,9 +1,9 @@
 package ir.kidzyland.domain.repository
 
 import ir.kidzyland.domain.model.Message
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.Flow
 
 interface IChatRepository {
-    fun sendMessage(content: String, sender: String)
-    fun getMessages(): StateFlow<List<Message>>
+    suspend fun sendMessage(message: Message)
+    fun getMessages(): Flow<List<Message>>
 }
