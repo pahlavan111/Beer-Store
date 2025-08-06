@@ -55,4 +55,9 @@ dependencies {
 
     //Async
     implementation(libs.coroutines.core)
+
+    //Database
+    api(libs.room.runtime)
+    ksp(libs.room.compiler)
+    api(libs.room.ktx)
 }

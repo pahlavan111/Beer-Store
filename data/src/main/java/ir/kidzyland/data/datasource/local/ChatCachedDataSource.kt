@@ -1,21 +1,29 @@
 package ir.kidzyland.data.datasource.local
 
 import ir.kidzyland.data.datasource.BaseDataSource
+import ir.kidzyland.data.db.dao.MessageDao
+import ir.kidzyland.data.mapper.toDomain
+import ir.kidzyland.data.mapper.toEntity
 import ir.kidzyland.domain.model.Message
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class ChatCachedDataSource @Inject constructor() : BaseDataSource() {
-    private val _messages = MutableStateFlow<List<Message>>(emptyList())
+class ChatCachedDataSource @Inject constructor(
+    private val messageDao: MessageDao
+) : BaseDataSource() {
 
-    fun sendMessage(content: String, sender: String) {
-        val newMessage = Message(content = content, sender = sender)
-        _messages.value = _messages.value + newMessage
+    fun getMessages(): Flow<List<Message>> {
+        return messageDao.getAllMessages().map { messageList ->
+            messageList.map { messageEntity ->
+                messageEntity.toDomain()
+            }
+        }
+
     }
 
-    fun getMessages(): StateFlow<List<Message>> {
-        return _messages.asStateFlow()
+
+    suspend fun sendMessage(message: Message) {
+        messageDao.insertMessage(message.toEntity())
     }
 }

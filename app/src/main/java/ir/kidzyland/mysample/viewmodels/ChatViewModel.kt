@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.kidzyland.domain.usecase.ChatUseCase
+import ir.kidzyland.mysample.mapper.toDomain
 import ir.kidzyland.mysample.mapper.toMessageModel
 import ir.kidzyland.mysample.models.MessageModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,11 +27,17 @@ class ChatViewModel @Inject constructor(
         getMessages()
     }
 
-
     fun sendMessage() {
         if (messageInput.value.isNotBlank()) {
-            chatUseCase.sendMessage(messageInput.value, sender = "User")
-            messageInput.value = ""
+            viewModelScope.launch {
+                chatUseCase.sendMessage(
+                    message = MessageModel(
+                        content = messageInput.value,
+                        sender = "User"
+                    ).toDomain()
+                )
+                messageInput.value = ""
+            }
         }
     }
 
