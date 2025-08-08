@@ -1,5 +1,10 @@
 [versions]
 agp = "8.11.0"
+
+compileSdk = "36"
+minSdk = "24"
+targetSdk = "36"
+
 kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -24,6 +29,14 @@ hiltAndroidx = "1.2.0"
 #database
 room = "2.7.2"
 
+# HTTP Requests
+# The latest version of Retrofit is not compatible with the latest version of the Moshi converter.
+# Use Retrofit 3.0.0 and Moshi converter 2.9.0 for compatibility.
+retrofit = "3.0.0"
+converterMoshi = "2.9.0"
+loggingInterceptor = "4.12.0"
+moshi ="1.8.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +59,7 @@ kotlin = { group = "org.jetbrains.kotlin" , name = "kotlin-stdlib" , version.ref
 # Coroutines
 coroutines-core = { group = "org.jetbrains.kotlinx" , name = "kotlinx-coroutines-core" , version.ref = "coroutines" }
 coroutines-android = { group = "org.jetbrains.kotlinx" , name = "kotlinx-coroutines-android" , version.ref = "coroutines" }
+
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
@@ -60,6 +74,13 @@ room-runtime = { group = "androidx.room" , name = "room-runtime" , version.ref =
 room-compiler = { group = "androidx.room" , name = "room-compiler" , version.ref = "room" }
 room-ktx = { group = "androidx.room" , name = "room-ktx" , version.ref = "room" }
 
+# Retrofit - okHttp
+retrofit-runtime = { group = "com.squareup.retrofit2" , name = "retrofit" , version.ref = "retrofit" }
+retrofit-moshi-converter = { group = "com.squareup.retrofit2" , name = "converter-moshi" , version.ref = "converterMoshi" }
+moshi = { group = "com.squareup.moshi" , name = "moshi" , version.ref = "moshi" }
+moshi-kotlin = { group = "com.squareup.moshi" , name = "moshi-kotlin" , version.ref = "moshi" }
+moshi-adapters = { group = "com.squareup.moshi" , name = "moshi-adapters" , version.ref = "moshi" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3" , name = "logging-interceptor" , version.ref = "loggingInterceptor" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -39,6 +39,7 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":checkconnectivity"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -55,6 +56,14 @@ dependencies {
 
     //Async
     implementation(libs.coroutines.core)
+
+    //HTTP
+    api(libs.retrofit.runtime)
+    api(libs.retrofit.moshi.converter)
+    api(libs.okhttp.logging.interceptor)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.moshi.adapters)
 
     //Database
     api(libs.room.runtime)

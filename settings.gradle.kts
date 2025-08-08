@@ -24,3 +24,4 @@ rootProject.name = "Chat Box"
 include(":app")
 include(":domain")
 include(":data")
+include(":checkconnectivity")

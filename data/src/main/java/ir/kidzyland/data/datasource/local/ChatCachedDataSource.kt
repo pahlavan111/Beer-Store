@@ -1,6 +1,5 @@
 package ir.kidzyland.data.datasource.local
 
-import ir.kidzyland.data.datasource.BaseDataSource
 import ir.kidzyland.data.db.dao.MessageDao
 import ir.kidzyland.data.mapper.toDomain
 import ir.kidzyland.data.mapper.toEntity
@@ -11,7 +10,7 @@ import javax.inject.Inject
 
 class ChatCachedDataSource @Inject constructor(
     private val messageDao: MessageDao
-) : BaseDataSource() {
+) {
 
     fun getMessages(): Flow<List<Message>> {
         return messageDao.getAllMessages().map { messageList ->
@@ -19,9 +18,7 @@ class ChatCachedDataSource @Inject constructor(
                 messageEntity.toDomain()
             }
         }
-
     }
-
 
     suspend fun sendMessage(message: Message) {
         messageDao.insertMessage(message.toEntity())
