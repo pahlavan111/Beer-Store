@@ -38,7 +38,7 @@ android {
         jvmToolchain(17)
     }
 
-    namespace = "ir.zypod.checkconnectivity"
+    namespace = "ir.bpf.checkconnectivity"
 }
 
 dependencies {

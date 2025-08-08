@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "ir.kidzyland.data"
+    namespace = "ir.bpf.data"
     compileSdk = 36
 
     defaultConfig {

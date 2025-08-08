@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "ir.kidzyland.mysample"
+    namespace = "ir.bpf.beerstore"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "ir.kidzyland.mysample"
+        applicationId = "ir.bpf.beerstore"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
